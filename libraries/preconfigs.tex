@@ -1,0 +1,71 @@
+% carpeta donde estan la imagenes
+\graphicspath{{img/}}
+%
+%definiendo colores
+\definecolor{fuxia}{RGB}{230, 0, 126}
+\definecolor{primary}{RGB}{90, 15, 46}
+\definecolor{secondary}{RGB}{248, 159, 123}
+%
+%funte tipografica
+\sectionfont{\color{primary}}
+\subsectionfont{\color{secondary}}
+%
+% caja de ejmplo
+
+%
+% caja de definicion
+\tcbuselibrary{theorems, breakable, skins}
+\newtcbtheorem{Theorem}{}%
+{
+	enhanced, % tcolorbox styles
+	%attach boxed title to top center={yshift=-2.5mm},
+	colback=white, colframe=fuxia, colbacktitle=white, toprule=0.2mm, leftrule=0.2mm, rightrule=0.2mm, bottomrule=0.2mm , coltitle=fuxia,
+	boxed title style={size=small,colframe=white},
+	%fonttitle=\bfseries,
+	%rounded corners=all,
+	toptitle=1ex, top=0.5ex, % a little extra space at top, a little less before content
+	titlerule=-1ex, % get rid of separator rule
+	title={#1},
+	%fontupper=\itshape, % make theorem content italics
+	%description delimiters parenthesis, % parentheses around theorem title
+	description font=\normalfont,% no bold for theorem title
+	separator sign none,% no punctuation after theorem name
+	breakable
+}{th}
+% caja de ejemplo
+\newtcbtheorem{Example}{}%
+{
+	enhanced, % tcolorbox styles
+	attach boxed title to top left={yshift=-2.5mm},
+	colback=white, colframe=lightgray, colbacktitle=white, toprule=0mm, leftrule=0.8mm, rightrule=0mm, bottomrule=0mm , coltitle=darkgray,
+	boxed title style={size=small,colframe=white},
+	%fonttitle=\bfseries,
+	%rounded corners=all,
+	toptitle=1ex, top=0.5ex, % a little extra space at top, a little less before content
+	titlerule=-1ex, % get rid of separator rule
+	title={#1},
+	%fontupper=\itshape, % make theorem content italics
+	%description delimiters parenthesis, % parentheses around theorem title
+	description font=\normalfont,% no bold for theorem title
+	separator sign none,% no punctuation after theorem name
+	breakable
+}{th}
+%
+% configurando multicols
+\NewEnviron{auxmulticols}[1]{%
+	\ifnum#1<2\relax% Fewer than 2 columns
+	%\vspace{-\baselineskip}% Possible vertical correction
+	\BODY
+	\else% More than 1 column
+	\begin{multicols}{#1}
+		\BODY
+	\end{multicols}%
+	\fi
+}
+%
+%  definiir seno
+\def\sen{\mathop{\mbox{\normalfont sen}}\nolimits}
+\def\ctg{\mathop{\mbox{\normalfont ctg}}\nolimits}
+\def\tg{\mathop{\mbox{\normalfont tg}}\nolimits}
+
+% para tabla periodica
